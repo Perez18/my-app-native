@@ -8,6 +8,12 @@ const parseEmail = email => {
   return email
 }
 
+const parseThounsand = value => {
+  return value >= 1000
+    ? `${Math.round(value / 100) / 10}K`
+    : String(value)
+}
+
 const RepositoryStat = props => {
   return (
     <View
@@ -16,29 +22,29 @@ const RepositoryStat = props => {
         justifyContent: 'space-between'
       }}
     >
-        <View>
-          <Text style={style.strong}>Star</Text>
-          <Text>{props.stargazersCount}</Text>
-        </View>
-        <View>
-          <Text style={style.strong}>Forks</Text>
-          <Text>{parseEmail(props.forksCount)}</Text>
-        </View>
-        <View>
-          <Text style={style.strong}>Review</Text>
-          <Text>{props.reviewCount}</Text>
-        </View>
-        <View>
-          <Text style={style.strong}>Rating</Text>
-          <Text>{props.ratingAverage}</Text>
-        </View>
+      <View>
+        <Text style={style.strong}>Star</Text>
+        <Text>{parseThounsand(props.stargazersCount)}</Text>
+      </View>
+      <View>
+        <Text style={style.strong}>Forks</Text>
+        <Text>{parseThounsand(props.forksCount)}</Text>
+      </View>
+      <View>
+        <Text style={style.strong}>Review</Text>
+        <Text>{props.reviewCount}</Text>
+      </View>
+      <View>
+        <Text style={style.strong}>Rating</Text>
+        <Text>{props.ratingAverage}</Text>
+      </View>
     </View>
   )
 }
 
 const style = StyleSheet.create({
   container: {
-    padding:  10,
+    padding: 10,
     paddingBottom: 5,
     paddingTop: 5
   },

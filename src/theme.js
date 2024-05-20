@@ -1,8 +1,12 @@
 const theme = {
+    appBar: {
+        textPrimary:  '#24292e'
+    },
     colors: {
+        white: '#fff',
+        primary: '#0366d6',
         textPrimary: '#24292e',
         textSecondary: '#586069',
-        primary: '#0366d6'
     },
     fontSize: {
         body: 14,

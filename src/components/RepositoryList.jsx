@@ -1,11 +1,13 @@
 import React from 'react'
-import { FlatList, SafeAreaView } from 'react-native'
+import { FlatList, SafeAreaView, StyleSheet, StatusBar } from 'react-native'
 import repositorio from '../data/repositorio'
 import RepositoryItem from './RepositoryItem'
+
 const RepositoryList = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView styles={styles.container}>
       <FlatList
+        contentContainerStyle={{ flexGrow: 1 }}
         data={repositorio}
         renderItem={({ item: repo }) => <RepositoryItem {...repo} />}
         keyExtractor={item => item.id}
@@ -13,5 +15,13 @@ const RepositoryList = () => {
     </SafeAreaView>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
+  }
+});
+
 
 export default RepositoryList

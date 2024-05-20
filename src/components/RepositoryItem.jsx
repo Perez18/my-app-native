@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet, Image } from 'react-native'
 import RepositoryStat from './RepositoryStat'
 import StyleText from './StyleText'
+import theme from '../theme'
 
 const RepositoryItemHeader = ({
   ownerAvatarUrl,
@@ -20,10 +21,10 @@ const RepositoryItemHeader = ({
         uri: ownerAvatarUrl
       }}
     />
-    <View style={{ paddingLeft: 10}}>
-      <Text style={style.strong}>{fullName}</Text>
-      <StyleText>{description}</StyleText>
-      <StyleText blue bold>{language}</StyleText>
+    <View style={{ paddingLeft: 10 }}>
+      <StyleText fontSize='subheading' fontWeight='bold'>{fullName}</StyleText>
+      <StyleText >{description}</StyleText>
+      <StyleText style={style.lenguage}>{language}</StyleText>
     </View>
   </View>
 )
@@ -53,6 +54,14 @@ const style = StyleSheet.create({
     fontSize: 17,
     color: 'black',
     fontWeight: 'bold'
+  },
+  lenguage: {
+    padding: 4,
+    color: theme.colors.white,
+    backgroundColor: theme.colors.primary,
+    alignSelf: 'flex-start',
+    borderRadius: 5,
+    overflow: 'hidden'
   }
 })
 

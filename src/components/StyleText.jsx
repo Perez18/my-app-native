@@ -2,7 +2,7 @@ import React from 'react'
 import { Text, StyleSheet } from 'react-native'
 import theme from '../theme'
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     text: {
         fontSize: 12,
         color: theme.colors.textPrimary
@@ -22,26 +22,32 @@ const style = StyleSheet.create({
     small: {
         fontSize: 10
     },
-    subheading:{
-        fontSize:theme.fontSize.subheading
+    subheading: {
+        fontSize: theme.fontSize.subheading
+    },
+    textAlignCenter: {
+        textAlign: 'center'
     }
 })
 
 
 const StyleText = ({
     children,
+    align,
     color,
-    bold,
-    big,
-    small
+    fontWeight,
+    fontSize,
+    style
 }) => {
 
     const textStyle = [
-        style.text,
-        color === 'primary' && style.colorPrimary,
-        color === 'secondary' && style.colorSecondary,
-        big && style.big,
-        big && style.small
+        styles.text,
+        align === 'center' && style.textAlignCenter,
+        color === 'primary' && styles.colorPrimary,
+        color === 'secondary' && styles.colorSecondary,
+        fontSize === 'subheading' && styles.subheading,
+        fontWeight === 'bold' && styles.bold,
+        style
     ]
     return (
         <Text style={textStyle}>

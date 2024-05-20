@@ -2,16 +2,17 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import Constants from 'expo-constants';
 import { Link } from 'react-router-native';
+import theme from '../theme';
 
 const style = StyleSheet.create({
   container: {
-    backgroundColor:'#24292e',
-    paddingTop:Constants.statusBarHeight + 10,
-    paddingBottom:10,
-    paddingLeft:10
+    backgroundColor: '#24292e',
+    paddingTop: Constants.statusBarHeight + 10,
+    paddingBottom: 10,
+    paddingLeft: 10
   },
-  text:{
-    color:'white'
+  text: {
+    color: theme.colors.white
   }
 });
 
@@ -21,23 +22,24 @@ const AppBarTab = ({
   to
 }) => {
 
-  return(
+  return (
     <Link active to={to} >
       <Text style={style.text}>
-         {children}   
-       </Text> 
+        {children}
+      </Text>
     </Link>
   )
-  
+
 
 }
 
 const AppBar = () => {
   return (
     <View style={style.container}>
-      <View style={{flexDirection:'row',flexWrap:'wrap' }}>
-          <AppBarTab to={'/'} >Users</AppBarTab>
-          <AppBarTab to={'/sign'} >Sign</AppBarTab>
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around' }}>
+        <AppBarTab to={'/'} >Users</AppBarTab>
+        <AppBarTab to={'/sign'} >Sign</AppBarTab>
+    
       </View>
     </View>
   )

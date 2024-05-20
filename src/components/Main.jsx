@@ -7,11 +7,11 @@ import Login from './Login';
 
 const Main = () => {
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <AppBar />
       <Routes>
         <Route path='/' element={<RepositoryList />} />
-        <Route path='/sign' element={<Login/>} />
+        <Route path='/sign' element={<Login />} />
       </Routes>
     </View>
   )
