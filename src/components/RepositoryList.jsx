@@ -5,7 +5,6 @@ import RepositoryItem from './RepositoryItem'
 const RepositoryList = () => {
   return (
     <SafeAreaView>
-
       <FlatList
         data={repositorio}
         renderItem={({ item: repo }) => <RepositoryItem {...repo} />}
