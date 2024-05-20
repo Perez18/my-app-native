@@ -1,11 +1,11 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-native';
-import { View, Text } from 'react-native'
-import AppBar from './AppBar';
+import { View } from 'react-native'
 import RepositoryList from './RepositoryList';
 import Login from './Login';
+import AppBar from './AppBar';
 
-const Main = () => {
+const Main = () => {  
   return (
     <View style={{ flex: 1 }}>
       <AppBar />

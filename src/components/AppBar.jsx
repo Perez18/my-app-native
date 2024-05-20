@@ -1,33 +1,17 @@
 import React from 'react'
 import { StyleSheet, Text, View, ScrollView, TouchableWithoutFeedback } from 'react-native'
 import Constants from 'expo-constants';
-import { Link } from 'react-router-native';
+import { Link, useLocation } from 'react-router-native';
 import theme from '../theme';
 import StyleText from './StyleText'
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#24292e',
-    flexDirection: 'row',
-    paddingTop: Constants.statusBarHeight + 10,
-  },
-  scroll: {
-    paddingBottom: 10,
-  },
-  text: {
-    color: theme.appBar.textSecondary,
-    paddingHorizontal: 10
-  },
-  active:{
-    color : theme.appBar.textPrimary
-  }
-});
-
 const AppBarTab = ({
-  active,
   children,
   to
 }) => {
+
+  const {pathname} = useLocation();
+  const active = pathname === to
 
   const textStyle = [
     styles.text,
@@ -49,11 +33,29 @@ const AppBar = () => {
   return (
     <View style={styles.container}>
       <ScrollView horizontal style={styles.scroll}>
-        <AppBarTab active to={'/'} >Users</AppBarTab>
-        <AppBarTab to={'/sign'} >Sign</AppBarTab>
+        <AppBarTab to={'/'} >Users</AppBarTab>
+        <AppBarTab to={'/sign'} >Sign In</AppBarTab>
       </ScrollView>
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#24292e',
+    flexDirection: 'row',
+    paddingTop: Constants.statusBarHeight + 10,
+  },
+  scroll: {
+    paddingBottom: 10,
+  },
+  text: {
+    color: theme.appBar.textSecondary,
+    paddingHorizontal: 10
+  },
+  active: {
+    color: theme.appBar.textPrimary
+  }
+});
 
 export default AppBar
