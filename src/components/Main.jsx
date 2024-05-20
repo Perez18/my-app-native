@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-native';
 import { View } from 'react-native'
 import RepositoryList from './RepositoryList';
-import Login from './Login';
+import Login from '../pages/Login';
 import AppBar from './AppBar';
 
 const Main = () => {  

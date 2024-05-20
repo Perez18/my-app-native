@@ -8,26 +8,28 @@ const RepositoryItemHeader = ({
   ownerAvatarUrl,
   fullName,
   description,
-  language }) => (
-  <View
-    style={{
-      flexDirection: 'row',
-      paddingBottom: 4
-    }}
-  >
-    <Image
-      style={style.img}
-      source={{
-        uri: ownerAvatarUrl
+  language }) => {
+  return (
+    <View
+      style={{
+        flexDirection: 'row',
+        paddingBottom: 4
       }}
-    />
-    <View style={{ paddingLeft: 10 }}>
-      <StyleText fontSize='subheading' fontWeight='bold'>{fullName}</StyleText>
-      <StyleText >{description}</StyleText>
-      <StyleText style={style.lenguage}>{language}</StyleText>
+    >
+      <Image
+        style={style.img}
+        source={{
+          uri: ownerAvatarUrl
+        }}
+      />
+      <View style={{ paddingLeft: 10 }}>
+        <StyleText fontSize='subheading' fontWeight='bold'>{fullName}</StyleText>
+        <StyleText >{description}</StyleText>
+        <StyleText style={style.lenguage}>{language}</StyleText>
+      </View>
     </View>
-  </View>
-)
+  )
+}
 
 const RepositoryItem = props => {
   return (
@@ -60,7 +62,7 @@ const style = StyleSheet.create({
     color: theme.colors.white,
     backgroundColor: Platform.select({
       android: theme.colors.primary,
-      ios:theme.colors.danger
+      ios: theme.colors.danger
     }
 
     ),
