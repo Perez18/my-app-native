@@ -5,7 +5,6 @@ const useRepositories = () => {
 
     const { data = [], loading, error, refetch } = useQuery(GET_REPOSITORIES);
 
-    if(loading) return 'return'
     const { repositories = null } = data
 
     // console.log(repositories);
