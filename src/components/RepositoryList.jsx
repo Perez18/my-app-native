@@ -1,9 +1,26 @@
 import React, { useEffect, useState } from 'react'
-import { FlatList, SafeAreaView, StyleSheet, StatusBar } from 'react-native'
+import {View, Text,FlatList, SafeAreaView, StyleSheet, StatusBar } from 'react-native'
 import RepositoryItem from './RepositoryItem'
 import useRepositories from '../hooks/useRepositories'
 const RepositoryList = () => {
-  const { repositories} = useRepositories();
+  const { repositories, loading,error } = useRepositories();
+
+  if (loading) {
+    return (
+      <View>
+        <Text>Loading...</Text>
+      </View>
+    );
+  }
+  if (error) {
+    return (
+      <View>
+        <Text>
+          Error: {error.message}
+        </Text>
+      </View>
+    );
+  }
 
   return (
     <SafeAreaView styles={styles.container}>
