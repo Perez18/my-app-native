@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FlatList, SafeAreaView, StyleSheet, StatusBar } from 'react-native'
-import repositorio from '../data/repositorio'
 import RepositoryItem from './RepositoryItem'
-
+import useRepositories from '../hooks/useRepositories'
 const RepositoryList = () => {
+  const { repositories} = useRepositories();
+
   return (
     <SafeAreaView styles={styles.container}>
       <FlatList
+        data={repositories}
         contentContainerStyle={{ flexGrow: 1 }}
-        data={repositorio}
         renderItem={({ item: repo }) => <RepositoryItem {...repo} />}
         keyExtractor={item => item.id}
       />

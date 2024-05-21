@@ -11,17 +11,33 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         fontSize: 12,
         color: theme.colors.textPrimary,
-        padding:10
+        marginBottom: 4
+    },
+    error: {
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: '#999',
+        paddingHorizontal: 20,
+        paddingVertical: 10,
+        fontSize: 12,
+        color: theme.colors.textPrimary,
+        marginBottom: 4,
+        borderColor: 'red'
     }
 })
 
 
 const StyleTextInput = ({
     children,
+    error,
     ...rest
 }) => {
+    const stylesError = !error
+        ? styles.textInput
+        : styles.error
+
     return (
-        <TextInput style={styles.textInput} {...rest}>
+        <TextInput style={stylesError} {...rest}>
             {children}
         </TextInput>
     )
